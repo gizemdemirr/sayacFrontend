@@ -6,7 +6,7 @@ import {Portal} from 'react-native-paper';
 const CustomButton = ({onPress, text}) => {
   return (
     <Portal.Host>
-      <Pressable onPress={onPress => alert()} style={styles.container}>
+      <Pressable onPress={onPress} style={styles.container}>
         <Text style={styles.text}>{text}</Text>
       </Pressable>
     </Portal.Host>
