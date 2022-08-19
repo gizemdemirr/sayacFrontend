@@ -1,10 +1,11 @@
+/* eslint-disable prettier/prettier */
 
 import React, { useState } from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, Linking, ScrollView } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import PieChart from 'react-native-pie-chart';
 import Icon from 'react-native-vector-icons/Entypo';
-Icon.loadFont()
+Icon.loadFont();
 
 
 const DATA = [
@@ -12,40 +13,36 @@ const DATA = [
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
     title: 80,
     text:80,
-   
+
   },
   {
     id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
     title: 102,
-    text:57
-    
+    text:57,
   },
   {
     id: '58694a0f-3da1-471f-bd96-145571e29d72',
     title: 25,
-    text:105
+    text:105,
   },
   {
     id: '4',
     title: 100,
-    text:420
+    text:420,
   },
   {
     id: '5',
     title: 20,
-    text:200
+    text:200,
   },
 
 ];
 
-
-
 const App = () => {
-  const widthAndHeight = 200
-  const series = [123, 321, 123, 789, 537]
-  const sliceColor = ['#F44336','#2196F3','#FFEB3B', '#4CAF50', '#FF9800']
-
-  const [currentIndex,setCurrentIndex]=useState(null)
+  const widthAndHeight = 200;
+  const series = [123, 321, 123, 789, 537];
+  const sliceColor = ['#F44336','#2196F3','#FFEB3B', '#4CAF50', '#FF9800'];
+  const [currentIndex,setCurrentIndex] = useState(null);
   const [deneme, setDeneme] = useState(false);
   let kacak;
 
@@ -53,27 +50,24 @@ const App = () => {
   const [whatsAppMsg, setWhatsAppMsg] = useState(
     'Kayıp/Kaçak olabilir.'
   );
-  
-
   const initiateWhatsAppSMS = () => {
-    if (mobileNumber.length != 10) {
-      alert('Please insert correct contact number');
+    if (mobileNumber.length !== 10) {
+      alert.alert('Please insert correct contact number');
       return;
     }
-    
-    let url =
+      let url =
       'whatsapp://send?text=' + whatsAppMsg + '&phone=90' + mobileNumber;
     Linking.openURL(url)
       .then((data) => {
         console.log('WhatsApp Opened');
       })
       .catch(() => {
-        alert('Make sure Whatsapp installed on your device');
+        alert.alert('Make sure Whatsapp installed on your device');
       });
   };
   const Item = ({ title,text,index }) => (
     <SafeAreaView>
-      
+
     <View style={{
        backgroundColor: '#292c2d',
        padding: 7,
@@ -81,46 +75,39 @@ const App = () => {
        marginHorizontal: 5,
        borderRadius:10,
        flexDirection:'row',
-       justifyContent:"space-between",
-      borderWidth: 2,
-      borderColor: kacak ? 'red' : ''
+       justifyContent:'space-between',
+       borderWidth: 2,
+       borderColor: kacak ? 'red' : '',
       }}>
-        
+
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.text}>{text}</Text>
     </View>
-    
+
     </SafeAreaView>
   );
   const renderItem = ({ item,index }) => (
-  
-
-   
    <View >
     {
-            kacak =  item.title < item.text && item.text-item.title >= 150
+            kacak =  item.title < item.text && item.text - item.title >= 150
     }
-    <TouchableOpacity 
-   
+    <TouchableOpacity
+
     onPress={()=>{
-      setCurrentIndex(index === currentIndex ? null : index)
-      setDeneme(!deneme)
-    
-      
-     
+      setCurrentIndex(index === currentIndex ? null : index);
+      setDeneme(!deneme);
     }}
     activeOpacity={0.7}
     >
     <Item title={item.title}  index={index} text={item.text}/>
     {index === currentIndex && (
-      
-    <>
 
+    <>
     {}
       <View >
         {
-        item.title < item.text && item.text-item.title >= 150 ?
-        
+        item.title < item.text && item.text - item.title >= 150 ?
+
         <TouchableOpacity onPress={initiateWhatsAppSMS}>
             <View style={styles.whatsappsms}>
             <Icon name="whatsapp" size={25} color="#34A853" />
@@ -129,15 +116,14 @@ const App = () => {
         </TouchableOpacity>
         : null
       }
-       
+
       </View>
-    </> 
+    </>
     )}
-    
+
     </TouchableOpacity>
-    
+
   </View>
-    
   );
 
   return (
@@ -148,7 +134,7 @@ const App = () => {
       <Text style={styles.text1}>Geçen Ay Günlük Tüketim</Text>
       <Text style={styles.text1}>Şimdi</Text>
       </View>
-      
+
       <FlatList
         data={DATA}
         renderItem={renderItem}
@@ -166,23 +152,23 @@ const App = () => {
             coverFill={'#FFF'}
           />
 
-      
+
       </View>
       <View style={styles.basecontainer}>
       <View style={styles.pieTitle}>
-          <Icon name='dot-single' color={'#F44336'} size={25}></Icon>
+          <Icon name="dot-single" color={'#F44336'} size={25} />
          <Text>lorem ipsum</Text>
       </View>
       <View style={styles.pieTitle}>
-          <Icon name='dot-single' color={'#2196F3'} size={25}></Icon>
+          <Icon name="dot-single" color={'#2196F3'} size={25} />
          <Text>lorem ipsum</Text>
       </View>
       <View style={styles.pieTitle}>
-          <Icon name='dot-single' color={'#FF9800'} size={25}></Icon>
+          <Icon name="dot-single" color={'#FF9800'} size={25} />
          <Text>lorem ipsum</Text>
       </View>
       <View style={styles.pieTitle}>
-          <Icon name='dot-single' color={'#4CAF50'} size={25}></Icon>
+          <Icon name="dot-single" color={'#4CAF50'} size={25} />
          <Text>lorem ipsum</Text>
       </View>
       </View>
@@ -190,20 +176,20 @@ const App = () => {
       </ScrollView>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
-    display:"flex",
+    display:'flex',
     flex: 1,
-   
+
   },
   conta:{
-    flexDirection:"row" ,
-    justifyContent:"space-between",
+    flexDirection:'row' ,
+    justifyContent:'space-between',
      padding:10,
      marginTop:10,
-     
+
   },
   item: {
     backgroundColor: '#292c2d',
@@ -212,66 +198,66 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     borderRadius:10,
     flexDirection:'row',
-    justifyContent:"space-between",
-    
+    justifyContent:'space-between',
+
   },
   title: {
     fontSize: 15,
-    color: "#a8a8a8",
-    textAlign:"left",
-   
+    color: '#a8a8a8',
+    textAlign:'left',
+
   },
   text:{
     fontSize: 15,
-    color: "#a8a8a8",
-    textAlign:"right", 
+    color: '#a8a8a8',
+    textAlign:'right',
   },
   text1:{
-    fontSize:17
+    fontSize:17,
   },
   textAlert:{
-    textAlign:"center",
+    textAlign:'center',
     fontSize:16,
-    fontWeight:'600'
-    
+    fontWeight:'600',
+
   },
   whatsappsms:{
-    justifyContent:"flex-start",
-    flexDirection:"row",
+    justifyContent:'flex-start',
+    flexDirection:'row',
     marginLeft:13,
-    padding:2
+    padding:2,
   },
   piechart:{
-   justifyContent:"center",
-    backgroundColor:"blue"
-    
+   justifyContent:'center',
+    backgroundColor:'blue',
+
   },
   pieview:{
     flex:1,
-    alignItems:'flex-start'
+    alignItems:'flex-start',
   },
 
   piecontainer:{
   flex: 1,
-  flexDirection:"row"
+  flexDirection:'row',
   },
 
   pieTitle: {
-    flexDirection:"row",
-    justifyContent: "flex-end",
-    
+    flexDirection:'row',
+    justifyContent: 'flex-end',
+
   },
   basecontainer:{
     flex:1,
-    flexDirection:"column",
-    justifyContent: "space-around",
-    alignItems: "center"
-  
+    flexDirection:'column',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+
   },
   listcontainer:{
     flex:1,
-marginBottom:80
-  }
+marginBottom:80,
+  },
 
 
 });
