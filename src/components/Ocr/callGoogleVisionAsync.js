@@ -1,4 +1,4 @@
-
+/* eslint-disable prettier/prettier */
 const API_KEY = 'AIzaSyBC6CNP0ypZONbH8JbF-QT26gBHPtcCMkw';
 const API_URL = `https://vision.googleapis.com/v1/images:annotate?key=${API_KEY}`;
 

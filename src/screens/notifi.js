@@ -1,12 +1,13 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+/* eslint-disable prettier/prettier */
+import React from 'react';
+import {View, Text} from 'react-native';
 
-const Notifi = () => {
+const Notification = () => {
   return (
     <View>
-      <Text>notifi</Text>
+      <Text>Notification</Text>
     </View>
-  )
-}
+  );
+};
 
-export default Notifi;
+export default Notification;

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 
 import { View,Text, TextInput,StyleSheet} from 'react-native';
 import React from 'react';
@@ -8,7 +9,7 @@ const Otp = ({value}) => {
         <View style={styles.contain}>
     <View style={styles.View}>
       <TextInput
-      keyboardType='numeric'
+      keyboardType="numeric"
       maxLength={5}
       value={value}
       style={styles.textInput}
@@ -49,7 +50,6 @@ const styles = StyleSheet.create({
 
     },
     View:{
-       
         alignItems:'center',
         borderRadius:10,
         borderColor:'black',
@@ -63,5 +63,5 @@ const styles = StyleSheet.create({
         color:'black',
         fontWeight:'bold',
 
-    }
-})
+    },
+});

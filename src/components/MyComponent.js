@@ -1,8 +1,9 @@
+/* eslint-disable prettier/prettier */
 import * as React from 'react';
-import { View } from 'react-native';
-import { Button, Paragraph, Dialog, Portal, Provider } from 'react-native-paper';
+import {View} from 'react-native';
+import {Button, Paragraph, Dialog, Portal, Provider} from 'react-native-paper';
 
-const MyComponent = (open) => {
+const MyComponent = open => {
   const [visible, setVisible] = React.useState(false);
 
   const showDialog = () => setVisible(true);

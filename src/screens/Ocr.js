@@ -1,10 +1,11 @@
+/* eslint-disable prettier/prettier */
 
 
-import React from 'react'
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import 'react-native-gesture-handler';
-import ImagePicker from '../components/Ocr/ImagePicker'
-import callGoogleVisionAsync from '../components/Ocr/callGoogleVisionAsync'
+import ImagePicker from '../components/Ocr/ImagePicker';
+import callGoogleVisionAsync from '../components/Ocr/callGoogleVisionAsync';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,15 +18,11 @@ const styles = StyleSheet.create({
 
 const Ocr = () => {
   return (
-    
     <View style={styles.container}>
-   
    <ImagePicker onSubmit={callGoogleVisionAsync}/>
-   
     </View>
-  
-  )
-}
+  );
+};
 
 export default Ocr;
 
