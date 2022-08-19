@@ -8,6 +8,20 @@ import Otp from './Otp';
 function ImagePickerComponent({onSubmit}) {
   const [image, setImage] = useState(null);
   const [text, setText] = useState('');
+
+  useEffect(() => {
+    AsyncStorage.getItem("postId").then(async(res)=>{
+      const AsyncStorageValue = JSON.parse(res);
+      console.log("asyncvalue",AsyncStorageValue);
+      let ocradd ={
+        endeks:text,
+        post:{id:AsyncStorageValue}
+       }
+       console.log("deneme",ocradd);
+       await axios.post("http://10.110.213.34:9090/ocr/addendeks",ocradd)
+    })
+  }, [text])
+
   const pickImage = async () => {
     let source = await launchImageLibrary({
       mediaType: 'photo',
