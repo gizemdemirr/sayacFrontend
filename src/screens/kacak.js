@@ -1,9 +1,10 @@
 
-import Icon from 'react-native-vector-icons/FontAwesome';
-
 import React, { useState } from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, Linking } from 'react-native';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, Linking, ScrollView } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import PieChart from 'react-native-pie-chart';
+import Icon from 'react-native-vector-icons/Entypo';
+Icon.loadFont()
 
 
 const DATA = [
@@ -40,6 +41,10 @@ const DATA = [
 
 
 const App = () => {
+  const widthAndHeight = 200
+  const series = [123, 321, 123, 789, 537]
+  const sliceColor = ['#F44336','#2196F3','#FFEB3B', '#4CAF50', '#FF9800']
+
   const [currentIndex,setCurrentIndex]=useState(null)
   const [deneme, setDeneme] = useState(false);
   let kacak;
@@ -137,6 +142,8 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <View style={styles.listcontainer}>
       <View style={styles.conta}>
       <Text style={styles.text1}>Geçen Ay Günlük Tüketim</Text>
       <Text style={styles.text1}>Şimdi</Text>
@@ -147,11 +154,40 @@ const App = () => {
         renderItem={renderItem}
         keyExtractor={item => `${item.id}-${item.title}`}
       />
+      </View>
+      <View style={styles.piecontainer}>
       <View style={styles.pieview}>
+          <PieChart
+            widthAndHeight={widthAndHeight}
+            series={series}
+            sliceColor={sliceColor}
+            doughnut={true}
+            coverRadius={0.45}
+            coverFill={'#FFF'}
+          />
+
       
       </View>
-
-    
+      <View style={styles.basecontainer}>
+      <View style={styles.pieTitle}>
+          <Icon name='dot-single' color={'#F44336'} size={25}></Icon>
+         <Text>lorem ipsum</Text>
+      </View>
+      <View style={styles.pieTitle}>
+          <Icon name='dot-single' color={'#2196F3'} size={25}></Icon>
+         <Text>lorem ipsum</Text>
+      </View>
+      <View style={styles.pieTitle}>
+          <Icon name='dot-single' color={'#FF9800'} size={25}></Icon>
+         <Text>lorem ipsum</Text>
+      </View>
+      <View style={styles.pieTitle}>
+          <Icon name='dot-single' color={'#4CAF50'} size={25}></Icon>
+         <Text>lorem ipsum</Text>
+      </View>
+      </View>
+      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -211,9 +247,30 @@ const styles = StyleSheet.create({
     
   },
   pieview:{
-    // width:'100%',
-    // height:'50%',
-    // backgroundColor:"red"
+    flex:1,
+    alignItems:'flex-start'
+  },
+
+  piecontainer:{
+  flex: 1,
+  flexDirection:"row"
+  },
+
+  pieTitle: {
+    flexDirection:"row",
+    justifyContent: "flex-end",
+    
+  },
+  basecontainer:{
+    flex:1,
+    flexDirection:"column",
+    justifyContent: "space-around",
+    alignItems: "center"
+  
+  },
+  listcontainer:{
+    flex:1,
+marginBottom:80
   }
 
 

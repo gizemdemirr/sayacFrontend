@@ -8,6 +8,7 @@ import Kacak from './screens/kacak';
 import Ocr from './screens/Ocr';
 import Tasarruf from './screens/tasarruf';
 import Notifi from './screens/notifi';
+import Login from './screens/Login';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -64,7 +65,9 @@ function Router() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeStack} />
+    
+      <Stack.Screen name="Home" component={HomeStack}/>
+       
       </Stack.Navigator>
     </NavigationContainer>
       
