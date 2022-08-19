@@ -60,8 +60,8 @@ const Home= ()=> {
                                 user:{id:AsyncStorageValue.id}
                               }
                               
-                          await axios.post("http://10.110.213.34:9090/posts/addCount",deneme)             
-                              
+                            const responses = await axios.post("http://10.110.213.34:9090/posts/addCount",deneme)             
+                            AsyncStorage.setItem("postId",JSON.stringify(responses.data.id))
                                
                            console.warn("tmm")  
                                     
