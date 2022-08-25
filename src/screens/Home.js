@@ -1,11 +1,10 @@
-/* eslint-disable prettier/prettier */
 import React, {useState, useEffect} from 'react';
 import {Button, Pressable, StyleSheet, View} from 'react-native';
 import Dialog from 'react-native-dialog';
 import CustomInput from '../components/CustomInput';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {DataTable, IconButton, Colors} from 'react-native-paper';
+import {DataTable, IconButton} from 'react-native-paper';
 import axios from 'axios';
 import CustomDialog from '../components/CustomDialog';
 import UpdateDiyalog from '../components/UpdateDialog';
@@ -131,11 +130,7 @@ const Home = () => {
           label="Close"
           onPress={() => {
             handleSend(); //Close butonu 0laması için
-            (homeTeam.subNo = ''),
-              (homeTeam.subCountNo = ''),
-              (homeTeam.countModel = ''),
-              (homeTeam.countMark = ''),
-              (homeTeam.spentMetreKup = '');
+            setHomeTeam('');
           }}
         />
       </Dialog.Container>
@@ -183,7 +178,7 @@ const Home = () => {
                   <View style={styles.actionCell}>
                     <IconButton
                       icon="delete"
-                      color={Colors.red500}
+                      iconColor="red"
                       size={20}
                       onPress={async () => {
                         try {
@@ -201,7 +196,7 @@ const Home = () => {
                   <View style={styles.actionCell}>
                     <IconButton
                       icon="update"
-                      color={Colors.blue400}
+                      iconColor="blue"
                       size={20}
                       onPress={() => {
                         showUpdate();
