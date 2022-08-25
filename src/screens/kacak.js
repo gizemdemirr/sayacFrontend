@@ -1,4 +1,5 @@
 import Icon from 'react-native-vector-icons/FontAwesome';
+
 import React, {useState} from 'react';
 import {
   SafeAreaView,
@@ -7,6 +8,7 @@ import {
   StyleSheet,
   Text,
   Linking,
+  ScrollView,
 } from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
@@ -115,17 +117,21 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.conta}>
-        <Text style={styles.text1}>Geçen Ay Günlük Tüketim</Text>
-        <Text style={styles.text1}>Şimdi</Text>
-      </View>
+      <ScrollView>
+        <View style={styles.listcontainer}>
+          <View style={styles.conta}>
+            <Text style={styles.text1}>Geçen Ay Günlük Tüketim</Text>
+            <Text style={styles.text1}>Şimdi</Text>
+          </View>
 
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={item => `${item.id}-${item.title}`}
-      />
-      <View style={styles.pieview} />
+          <FlatList
+            data={DATA}
+            renderItem={renderItem}
+            keyExtractor={item => `${item.id}-${item.title}`}
+          />
+          <View style={styles.pieview}></View>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

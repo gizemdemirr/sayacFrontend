@@ -13,14 +13,12 @@ const ImagePickerComponent = ({onSubmit}) => {
     AsyncStorage.getItem('postId').then(async res => {
       const AsyncStorageValue = JSON.parse(res);
       console.log('asyncvalue', AsyncStorageValue);
-      if (text !== '') {
-        let ocradd = {
-          endeks: text,
-          post: {id: AsyncStorageValue},
-        };
-        console.log('deneme', ocradd);
-        await axios.post('http://10.110.213.34:9090/ocr/addendeks', ocradd);
-      }
+      let ocradd = {
+        endeks: text,
+        post: {id: AsyncStorageValue},
+      };
+      console.log('deneme', ocradd);
+      await axios.post('http://10.110.213.34:9090/ocr/addendeks', ocradd);
     });
   }, [text]);
 
