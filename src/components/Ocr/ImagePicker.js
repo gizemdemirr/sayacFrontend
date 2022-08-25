@@ -1,7 +1,6 @@
-/* eslint-disable prettier/prettier */
 import {launchImageLibrary, launchCamera} from 'react-native-image-picker';
 import React, {useState, useEffect} from 'react';
-import {Button, Image, View, Text, PermissionsAndroid,StyleSheet} from 'react-native';
+import {Button, Image, View, Text, PermissionsAndroid} from 'react-native';
 import Otp from './Otp';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -75,7 +74,7 @@ const ImagePickerComponent = ({onSubmit}) => {
     }
   };
   return (
-    <View style={styles.body}>
+    <View style={{flex: 1, justifyContent: 'center'}}>
       <View>
         <Button title="Pick an image from camera roll" onPress={pickImage} />
         <Button title="Camera" onPress={requestCameraPermission} />
@@ -83,7 +82,7 @@ const ImagePickerComponent = ({onSubmit}) => {
         {image && (
           <Image
             source={{uri: image}}
-            style={styles.image}
+            style={{width: 400, height: 300, resizeMode: 'contain'}}
           />
         )}
         <Text>{text}</Text>
@@ -92,15 +91,4 @@ const ImagePickerComponent = ({onSubmit}) => {
     </View>
   );
 };
-const styles = StyleSheet.create({
- body:{
-  flex: 1,
-  justifyContent: 'center',
- },
- image:{
-  width: 400,
-  height: 300,
-  resizeMode: 'contain',
-},
-});
 export default ImagePickerComponent;
