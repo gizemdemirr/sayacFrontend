@@ -1,6 +1,5 @@
-/* eslint-disable prettier/prettier */
 import {launchImageLibrary, launchCamera} from 'react-native-image-picker';
-import React, {useState,useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Button, Image, View, Text, PermissionsAndroid} from 'react-native';
 import Otp from './Otp';
 import axios from 'axios';
