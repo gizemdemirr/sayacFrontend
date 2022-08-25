@@ -1,6 +1,4 @@
-/* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
-
 import {TouchableOpacity, Linking} from 'react-native';
 import {SafeAreaView, StyleSheet, View, Text} from 'react-native';
 import {Button, Checkbox, TextInput} from 'react-native-paper';

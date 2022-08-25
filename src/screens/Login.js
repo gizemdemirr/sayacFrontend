@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
 import {TextInput} from 'react-native-paper';
 import {
@@ -9,7 +8,7 @@ import {
   Pressable,
   Text,
 } from 'react-native';
-import anime from '../logo.json';
+import anime from '../../logo.json';
 import {useNavigation} from '@react-navigation/native';
 import CustomInput from '../components/CustomInput';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -36,7 +35,7 @@ const Login = () => {
       AsyncStorage.setItem('user', JSON.stringify(response.data));
       AsyncStorage.setItem('userId', JSON.stringify(response.data.id));
       console.warn('Hoşgeldiniz');
-      navigation.navigate('Home');
+      navigation.navigate('HomeStacks');
     } catch (error) {
       console.warn(error);
     }

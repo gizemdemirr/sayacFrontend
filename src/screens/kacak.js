@@ -1,6 +1,4 @@
-/* eslint-disable prettier/prettier */
 import Icon from 'react-native-vector-icons/FontAwesome';
-
 import React, {useState} from 'react';
 import {
   SafeAreaView,
