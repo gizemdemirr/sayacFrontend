@@ -178,7 +178,7 @@ const Home = () => {
                   <View style={styles.actionCell}>
                     <IconButton
                       icon="delete"
-                      iconColor="red"
+                      color="red"
                       size={20}
                       onPress={async () => {
                         try {
@@ -196,7 +196,7 @@ const Home = () => {
                   <View style={styles.actionCell}>
                     <IconButton
                       icon="update"
-                      iconColor="blue"
+                      color="blue"
                       size={20}
                       onPress={() => {
                         showUpdate();

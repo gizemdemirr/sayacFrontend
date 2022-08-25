@@ -35,7 +35,7 @@ const Login = () => {
       AsyncStorage.setItem('user', JSON.stringify(response.data));
       AsyncStorage.setItem('userId', JSON.stringify(response.data.id));
       console.warn('Hoşgeldiniz');
-      navigation.navigate('HomeStacks');
+      navigation.navigate('HomeStack');
     } catch (error) {
       console.warn(error);
     }

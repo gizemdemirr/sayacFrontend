@@ -97,7 +97,9 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {},
   dayHeaderStyle: {},
-  pickercontain: {},
+  pickercontain: {
+    marginBottom: 170,
+  },
   backdropStyle: {},
   headerStyle: {},
   renderView: {
