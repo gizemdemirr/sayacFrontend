@@ -24,9 +24,6 @@ export default class App extends React.Component {
   }
   componentDidUpdate(prevProps, prevState) {
     if (this.state.endDate !== prevState.endDate) {
-      // AsyncStorage işlemlerini compoenentdid mounta taşımayı unutma yada post işlemi yaparken
-      //postıd home sayfasında ypaıyor zaten bir daha set etmemize gerek yok.en son bağlantı yağılsığında silinecek
-      AsyncStorage.setItem('postId', JSON.stringify(1004));
       AsyncStorage.getItem('postId').then(async res => {
         const AsyncStorageValue = JSON.parse(res);
         let deneme = moment(this.state.startDate).format('YYYY-MM-DD');
